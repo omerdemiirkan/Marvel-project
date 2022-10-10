@@ -1,0 +1,38 @@
+.dashboard-background{
+  background-image:url("../../../assets/img/etiyakafa.jpg");
+  height:100vh;
+  opacity: 1;
+  overflow: hidden;
+
+}
+h1{
+  margin-left: 20px;
+  margin-top: 10px;
+}
+.table{
+  background: #242441;
+  margin-left: 20px;
+}
+.table.e-accordion-table {
+  color: #f58220;
+  border: 2px solid #f58220 !important;
+  box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+  text-align: center;
+  font-family: 'Anybody';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 21px;
+
+  color: #ffffff;
+}
+
+.table.e-accordion-table tr td {
+  border-left: 2px solid #f58220;
+  color: #f58220;
+}
+
+.table.e-accordion-table tr th {
+  border-left: 2px solid #f58220;
+  color: #f58220;
+}

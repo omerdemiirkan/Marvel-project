@@ -1,0 +1,49 @@
+
+
+<div class="dashboard-background ">
+  <h1 style="color:#f58220" >CUSTOMER </h1>
+  <div class="row">
+    <div class="col-8">
+
+      <div class="accordion-body">
+        <div class="row">
+          <div class="col-12">
+            <table class="table e-accordion-table mt-4">
+              <thead>
+              <tr class="e-accordion-table-title">
+                <th scope="col">Offer ID</th>
+                <th scope="col">Offer Name</th>
+                <th scope="col">Offer Description Name</th>
+                <th scope="col">Short Code</th>
+                <th scope="col">Offer Status </th>
+
+              </tr>
+              </thead>
+              <tbody class="e-accordion-table-body">
+              <ng-template ngFor let-offer [ngForOf]="offerList">
+                <ng-template ngFor let-prodOfferChar [ngForOf]="offer.prodOfferChars">
+                  <tr *ngFor="let selectedChar of prodOfferChar.charValueList">
+                    <td>{{ offer.prodOfferId }}</td>
+                    <td>{{ offer.name }}</td>
+                    <td>{{ offer.description }}</td>
+                    <td>{{ selectedChar.shortCode }}</td>
+                    <td>{{ offer.status }}</td>
+
+
+                  </tr>
+                </ng-template>
+              </ng-template>
+              </tbody>
+            </table>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+    <div class="col-3 ">
+      <omer-basket></omer-basket>
+    </div>
+  </div>
+</div>
+

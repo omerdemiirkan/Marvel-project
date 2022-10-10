@@ -1,0 +1,60 @@
+
+<div class="dashboard-background  ">
+  <h1 class="mt-4" style="color:#f58220" >ADMİN </h1>
+  <button class="mb-4 btn btn-outline-warning">
+    <img  style="width: 35px;height: 35px; background-color: #f58220" src="../../../assets/img/add_new.png" > ADD NEW OFFER
+  </button>
+  <div class="row">
+    <div class="col-10">
+
+      <div class="accordion-body">
+        <div class="row">
+          <div class="col-12">
+            <table class="table e-accordion-table">
+              <thead>
+              <tr class="e-accordion-table-title  ">
+                <th scope="col">Offer ID</th>
+                <th scope="col">Offer Name</th>
+                <th scope="col">Offer Description Name</th>
+                <th scope="col">Short Code</th>
+                <th scope="col">Offer Status </th>
+                <th scope="col">Action</th>
+              </tr>
+              </thead>
+              <tbody class="e-accordion-table-body">
+              <ng-template ngFor let-offer [ngForOf]="offerList">
+                <ng-template ngFor let-prodOfferChar [ngForOf]="offer. prodOfferChars">
+                  <tr *ngFor="let selectedChar of prodOfferChar.charValueList">
+                    <td>{{ offer.prodOfferId }}</td>
+                    <td>{{ offer.name }}</td>
+                    <td>{{ offer.description }}</td>
+                    <td>{{ selectedChar.shortCode }}</td>
+                    <td>{{ offer.status }}</td>
+                    <td>
+                      <div class="d-flex">
+
+                        <img class="pencil" src="../../../assets/img/pencil_accordion.png" >
+
+                          <img (click)="delete(offer.prodOfferId)" class="delete" src="../../../assets/img/delete_accordion.png" >
+
+
+
+                      </div>
+                    </td>
+
+
+                  </tr>
+                </ng-template>
+              </ng-template>
+              </tbody>
+            </table>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
