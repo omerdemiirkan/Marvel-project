@@ -1,6 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import {Offer} from "../models/offer";
-import {DashboardService} from "../services/dashboard.service";
+import {DashboardService} from "../services/dashboard/dashboard.service";
+import {addOfferToBasket, OfferList, RemoveBasket, RemoveOfferBasket} from "../../auth/storage/action";
+import {switchMap, tap} from "rxjs";
+import {AuthState} from "../../auth/storage/state";
+import {Store} from "@ngxs/store";
+import {OfferItem} from "../models/offerItem";
 
 @Component({
   selector: 'omer-basket',
@@ -9,18 +14,45 @@ import {DashboardService} from "../services/dashboard.service";
 })
 export class BasketComponent implements OnInit {
 
-  offerList!:Offer[]
 
-  constructor(private dashboardService:DashboardService) {}
+  selectedOffers!: OfferItem[] ;
+  constructor(private dashboardService:DashboardService,private store: Store) {}
 
   ngOnInit(): void {
-    this.getOfferList()
+   this.getSelectedOfferList()
   }
-  getOfferList(){
-    this.dashboardService.getOfferList().subscribe(data=>{
-      this.offerList=data
-      console.log(this.offerList)
+
+
+  getSelectedOfferList(){
+    this.store.select(AuthState.getSelectedOfferList).subscribe(data=>{
+      console.log(data)
+      if(data.selectedOfferList){
+        this.selectedOffers=data.selectedOfferList
+      }
     })
   }
+
+  remove(offer:OfferItem){
+    this.store.dispatch(new RemoveOfferBasket(offer)).pipe(tap(m=>{
+      console.log(m, "seeçtilk baba")
+    }))
+  }
+
+
+  // removeBasket(){
+  //   this.store.dispatch(new RemoveBasket())
+  // }
+  //
+  // get amount(): number {
+  //   let sumAmount!:number;
+  //   if (this.selectedOffers === undefined) return sumAmount;
+  //   this.selectedOffers.forEach((offer) => {
+  //  offer.offer.id
+  //   });
+  //   console.log(sumAmount)
+  //
+  //
+  //   return sumAmount;
+  // }
 
 }

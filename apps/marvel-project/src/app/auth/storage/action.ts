@@ -1,4 +1,5 @@
 import {Offer} from "../../pages/models/offer";
+import {OfferStateModel} from "../models/auth.state";
 
 
 export class Signin {
@@ -6,25 +7,39 @@ export class Signin {
   constructor(public email: string, public password: string) {}
 }
 
-export class Signout {
-  static readonly type = '[Auth] Signout';
-}
 
 export class Auth {
   static readonly type = '[Auth] Auth';
   constructor(public email: string, public password: string) {}
 }
 
-export class Remove {
-  static readonly type = '[Remove] Remove ';
-  constructor(public payload?: number) {
-    console.log(payload)
-  }
-
-
+export class RemoveOffer {
+  static readonly type = '[Offer] Remove Offer ';
+  constructor(public offer:Offer) {}
 }
 
+export class SelectedOfferList {
+  static readonly type = '[Offer] SelectedList';
+  constructor(public offer?:Offer) {}
+}
 export class OfferList {
   static readonly type = '[Offer] OfferList';
-  constructor(public payload?:Offer) {}
+  constructor(public offer?:Offer) {}
+}
+
+
+export class addOfferToBasket {
+  static readonly type = '[Offer] Add Offer To Basket';
+  constructor(public offer:Offer) {}
+}
+
+export class RemoveOfferBasket {
+  static readonly type = '[Offer] Remove Offer Basket';
+  constructor(public offer:Offer) {}
+}
+
+
+export class RemoveBasket {
+  static readonly type = '[Offer] Remove Offer Basket';
+
 }

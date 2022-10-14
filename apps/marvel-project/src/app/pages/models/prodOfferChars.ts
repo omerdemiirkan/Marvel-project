@@ -6,6 +6,7 @@ export interface ProdOfferChars{
   name?: string
   shortCode?: string
   isActive?: boolean
+
   selectedCharValue?:CharValueList[],
   charValueList?:CharValueList[]
 }

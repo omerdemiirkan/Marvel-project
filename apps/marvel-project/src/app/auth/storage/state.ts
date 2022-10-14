@@ -1,16 +1,23 @@
-import {of, switchMap, tap} from 'rxjs';
+import { of, switchMap, tap } from 'rxjs';
 import { Injectable } from '@angular/core';
 import {
   AuthStateModel,
   DeleteStateModel,
   OfferStateModel,
 } from '../models/auth.state';
-import { Auth, OfferList, Remove, Signin, Signout } from './action';
+import {
+  addOfferToBasket,
+  Auth,
+  OfferList,
+   RemoveBasket, RemoveOffer, RemoveOfferBasket,
+  Signin,
+
+} from './action';
 import { Action, Selector, State, StateContext } from '@ngxs/store';
 import { AuthService } from '../services/auth.service';
 import { patch, removeItem } from '@ngxs/store/operators';
 import { Offer } from '../../pages/models/offer';
-import { DashboardService } from '../../pages/services/dashboard.service';
+import { DashboardService } from '../../pages/services/dashboard/dashboard.service';
 
 @State<AuthStateModel>({
   name: 'auth', // the name of our state
@@ -29,17 +36,26 @@ export class AuthState {
     };
   }
 
-  @Selector()
-  static offerRemove(state: DeleteStateModel) {
-    return {
-      id: state.prodOfferId,
-    };
-  }
 
   @Selector()
   static getOfferList(state: OfferStateModel) {
     return {
       offerList: state.offerList,
+    };
+  }
+
+  @Selector()
+  static getSelectedOfferList(state: OfferStateModel) {
+    return {
+      selectedOfferList: state.selectedOfferList,
+    };
+  }
+
+  @Selector()
+  static addOfferToBasket(state: OfferStateModel) {
+    return {
+      offerList: state.offerList,
+      selectedOfferList: state.selectedOfferList,
     };
   }
 
@@ -82,41 +98,61 @@ export class AuthState {
     );
   }
 
-  @Action(Signout)
-  logout({ setState, getState }: StateContext<AuthStateModel>) {
-    const { token } = getState();
-    return this.authService.signout().pipe(
-      tap((x) => {
-        // setState({token});
-      })
-    );
-  }
 
-  @Action(Remove)
-  deletePost(
-    { getState, patchState, setState }: StateContext<DeleteStateModel>,
-    { prodOfferId }: DeleteStateModel
-  ) {
-    {
-      const state = getState();
-      const filteredArray = state.prodOfferId;
-      setState({
-        ...state,
-        prodOfferId: filteredArray,
-      });
-    }
+
+  @Action(RemoveOffer)
+  RemoveOffer({setState, getState, patchState }:StateContext<AuthStateModel>,{offer}:RemoveOffer){
+    let offers = getState().offerList;
+    offers = offers.filter(o=>o?.id!=offer?.id);
+    console.log("new offers", offers);
+    patchState({offerList:offers});
   }
 
   @Action(OfferList)
-  offerList({ setState, getState }: StateContext<OfferStateModel>) {
-    const  offerList  = getState();
-    console.log(offerList)
+  offerList({ setState, getState }: StateContext<AuthStateModel>) {
+    const offerList = getState();
+    console.log(offerList);
     return this.dashboardService.getOfferList().pipe(
       tap((x) => {
-    offerList.offerList=x
-        console.log(x)
+        offerList.offerList = x;
+        console.log(x);
+
       })
     );
   }
+
+  @Action(addOfferToBasket)
+  addOfferToBasket({ setState, getState, patchState }: StateContext<OfferStateModel>,{offer}:addOfferToBasket,) {
+    const offerItem = {offer,id:Math.floor(Math.random() * 1000)};
+    patchState({selectedOfferList: getState().selectedOfferList ? [...getState().selectedOfferList,offerItem] : [offerItem]})
+
+  }
+
+  @Action(RemoveOfferBasket)
+  RemoveOfferBasket({setState, getState, patchState }:StateContext<OfferStateModel>,{offer}:RemoveOfferBasket){
+    let offers = getState().selectedOfferList;
+    offers = offers.filter(o=>o?.id!=offer?.id);
+    console.log("new offers", offers);
+    patchState({selectedOfferList:offers});
+  }
+
+
+
+
+
+  // @Action(RemoveBasket)
+  // RemoveBasket({setState, getState, patchState }:StateContext<OfferStateModel>,{offer}:RemoveOfferBasket){
+  //
+  //   let offers = getState().selectedOfferList;
+  //   offers=offers.filter(o=>o.offer.id!=offer.id)
+  //   patchState({selectedOfferList:offers});
+  //
+  //
+  // }
+  //
+
+
+
+
 
 }

@@ -113,10 +113,12 @@
   ],
   "prodOfferList": [
     {
+      "id": 1,
       "prodOfferId": 1,
       "name": "32 Mbps ADSL Internet For New Customers",
       "description": "32 Mbps ADSL Internet",
       "status": "Active",
+      "amount": 125,
       "prodOfferType": "New Customers Offers",
       "prodOfferChars": [
         {
@@ -144,10 +146,12 @@
       ]
     },
     {
+      "id": 2,
       "prodOfferId": 2,
       "name": "70 Mbps VDSL for new Customer with friend invention",
       "description": "70 Mbps VDSL",
       "status": "Active",
+      "amount": 215,
       "prodOfferType": "New Customers Offers",
       "prodOfferChars": [
         {

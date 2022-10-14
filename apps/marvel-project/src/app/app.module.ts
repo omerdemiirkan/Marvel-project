@@ -20,10 +20,11 @@ import {RippleModule} from "primeng/ripple";
 import {MessageService} from "primeng/api";
 import {BasketComponent} from "./pages/basket/basket.component";
 import { AdminComponent } from './pages/admin/admin.component';
+import { SubmitOrderComponent } from './pages/submit-order/submit-order.component';
 
 
 @NgModule({
-  declarations: [AppComponent, CustomerComponent, BasketComponent, AdminComponent],
+  declarations: [AppComponent, CustomerComponent, BasketComponent, AdminComponent, SubmitOrderComponent],
   imports: [
     BrowserModule,
     AuthModule,

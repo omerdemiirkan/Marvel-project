@@ -1,39 +1,45 @@
-<br />
-<div class="e-basket-container">
-  <div class="e-basket">
-    <div class="row d-flex justify-content-center mt-2">
-      <span class="e-line-left"></span>
-      <label class="e-basket-label">Basket</label>
-      <span class="e-line-right"></span>
-    </div>
-    <div class="scroll">
-      <div class="d-flex" *ngFor="let offer of offerList">
-        <div class="d-flex">
-          <p>
-            Campain ID : {{ offer.name }}<br />
-            Prod Offer ID : {{ offer.description }}<br />
-            Prod Offer Name :{{ offer.prodOfferType }}
-            <button  class="mb-4 ml-4 removebutton">X</button>
-          </p>
+
+
+        <div class="e-basket-container">
+          <div class="e-basket">
+            <div class="row d-flex justify-content-center mt-2">
+              <span class="e-line-left"></span>
+              <label class="e-basket-label">Basket</label>
+              <span class="e-line-right"></span>
+            </div>
+            <div class="scroll">
+              <div style="margin-left: 5px" class="d-flex " *ngFor="let offerItem of selectedOffers">
+                <div class="d-flex row">
+                  <p class="col-12">
+                    Campain ID : {{ offerItem.offer.name }}<br />
+                    Prod Offer ID : {{ offerItem.offer.description }}<br />
+                    Prod Offer Name :{{ offerItem.offer.prodOfferType }}
+
+                  </p>
+
+                </div>
+                <button (click)="remove(offerItem)"  class="col-3 btn btn-outline-warning " >
+                  Clear
+                </button>
+              </div>
+            </div>
+            <div class="basket-total-price-row">
+              <div>
+                <label class="e-basket-total-label">TOTAL AMOUNT</label>
+              </div>
+              <div>
+                <label class="e-basket-price-label">10TL</label>
+              </div>
+            </div>
+            <div class="row d-flex align-items-center justify-content-center">
+              <button   style="margin-right: 50px" class="col-3 btn btn-outline-warning mt-2" >
+                Clear
+              </button>
+              <button routerLink="/submit"  class="col-3 btn btn-outline-warning ml-4 mt-2" >
+                Submit
+              </button>
+            </div>
+          </div>
         </div>
 
-      </div>
-    </div>
-    <div class="basket-total-price-row">
-      <div>
-        <label class="e-basket-total-label">TOTAL AMOUNT</label>
-      </div>
-      <div>
-        <label class="e-basket-price-label">10TL</label>
-      </div>
-    </div>
-    <div class="row d-flex align-items-center justify-content-center">
-      <button style="margin-right: 50px" class="col-3 btn btn-outline-warning mt-2" >
-        Clear
-      </button>
-      <button  class="col-3 btn btn-outline-warning ml-4 mt-2" >
-        Submit
-      </button>
-    </div>
-  </div>
-</div>
+
