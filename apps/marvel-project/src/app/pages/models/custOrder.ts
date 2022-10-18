@@ -1,14 +1,18 @@
 import {UserInfo} from "../../auth/models/userInfo";
 import {Offer} from "./offer";
 import {CharValueList} from "./charValueList";
+import {OfferItem} from "./offerItem";
+import {User} from "../../auth/models/user";
+import {BillingAccount} from "./BillingAccount";
+import {OrderCharList} from "./orderCharList";
 
 export interface CustOrder{
-
-  userInfo:UserInfo
-  prodOfferLists:Offer[]
-  orderCharList:CharValueList
+  id:number
+  userInfo:UserInfo[]
+  prodOfferLists:OfferItem[]
+  orderCharList:OrderCharList
   orderType: string,
   returnCode: string,
-  returnMessage:string
-  offers:Offer[]
+  returnMessage:string,
+
 }

@@ -18,6 +18,7 @@ import { AuthService } from '../services/auth.service';
 import { patch, removeItem } from '@ngxs/store/operators';
 import { Offer } from '../../pages/models/offer';
 import { DashboardService } from '../../pages/services/dashboard/dashboard.service';
+import {name} from "ts-jest/dist/transformers/hoist-jest";
 
 @State<AuthStateModel>({
   name: 'auth', // the name of our state
@@ -33,6 +34,8 @@ export class AuthState {
   static userDetails(state: AuthStateModel) {
     return {
       userType: state.userType,
+      userInfo:state.userInfo
+
     };
   }
 
@@ -78,6 +81,11 @@ export class AuthState {
             });
         patchState({
           userType: res[0]?.userType,
+          userInfo:res
+
+
+
+
         });
       })
     );
@@ -116,6 +124,7 @@ export class AuthState {
       tap((x) => {
         offerList.offerList = x;
         console.log(x);
+
 
       })
     );

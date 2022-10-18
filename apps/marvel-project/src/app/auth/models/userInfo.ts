@@ -1,3 +1,4 @@
+import {User} from "./user";
 
 export interface UserInfo{
 	id?: number;
@@ -6,5 +7,6 @@ export interface UserInfo{
 	isActive?: boolean;
 	username?: string;
 	password?: string;
+
 
   }

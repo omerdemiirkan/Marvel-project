@@ -6,6 +6,9 @@ import {switchMap, tap} from "rxjs";
 import {AuthState} from "../../auth/storage/state";
 import {Store} from "@ngxs/store";
 import {OfferItem} from "../models/offerItem";
+import {ActivatedRoute} from "@angular/router";
+import {AuthService} from "../../auth/services/auth.service";
+import {UserInfo} from "../../auth/models/userInfo";
 
 @Component({
   selector: 'omer-customer',
@@ -16,13 +19,34 @@ export class CustomerComponent implements OnInit {
 
   offerList!:Offer[]
 
+  selectedCustomerId!:number
   selectedOffers: OfferItem[] = [];
+  customer!:UserInfo
 
-  constructor(private dashboardService:DashboardService,private store: Store) {}
+
+  constructor(private dashboardService:DashboardService,private store: Store,   private activatedRoute: ActivatedRoute,
+              private authService:AuthService) {}
 
   ngOnInit(): void {
     this.getOfferList()
     this.getSelectedOfferList()
+    this.getCustomerById()
+  }
+
+  getCustomerById() {
+    this.activatedRoute.params.subscribe((params) => {
+      if (params['id']) this.selectedCustomerId = params['id'];
+    });
+    if (this.selectedCustomerId == undefined) {
+      //toast
+    } else {
+      this.authService
+        .getCustomerById(this.selectedCustomerId)
+        .subscribe((data) => {
+          this.customer = data;
+          console.log(this.customer,"cutsotmwee")
+        });
+    }
   }
 
   getOfferList(){

@@ -17,6 +17,9 @@ export class AdminComponent implements OnInit {
 
   offerList!:Offer[]
 
+  status!:Offer
+
+  selectedCustomerId!: number;
 
   constructor(private dashboardService:DashboardService,private store: Store) {
 
@@ -34,6 +37,9 @@ export class AdminComponent implements OnInit {
       .pipe(switchMap(() => this.store.selectOnce(AuthState.getOfferList)))
       .subscribe((data)=>{
         this.offerList=data.offerList
+        data.offerList.filter(m=>{
+           m.status==this.status
+        })
         console.log(data,"state offerlist")
       })
 

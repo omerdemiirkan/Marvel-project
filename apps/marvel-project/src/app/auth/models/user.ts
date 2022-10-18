@@ -1,4 +1,8 @@
 export interface User{
-    username?: string;
-    password?: string;
+  id: number;
+  userType: string;
+  uname: string;
+  isActive: boolean;
+  username: string;
+  password: string;
   }

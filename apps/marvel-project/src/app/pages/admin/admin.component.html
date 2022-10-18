@@ -23,8 +23,8 @@
               </thead>
               <tbody class="e-accordion-table-body">
               <ng-template ngFor let-offer [ngForOf]="offerList">
-                <ng-template ngFor let-prodOfferChar [ngForOf]="offer. prodOfferChars">
-                  <tr *ngFor="let selectedChar of prodOfferChar.charValueList">
+                <ng-template *ngIf="offer.status==='Active'" ngFor let-prodOfferChar [ngForOf]="offer. prodOfferChars">
+                  <tr  *ngFor="let selectedChar of prodOfferChar.charValueList">
                     <td>{{ offer.prodOfferId }}</td>
                     <td>{{ offer.name }}</td>
                     <td>{{ offer.description }}</td>

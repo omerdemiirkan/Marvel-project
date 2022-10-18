@@ -99,5 +99,29 @@ export class AuthService {
   //
   // }
 
+  getCustomerById(selectedId: number): Observable<UserInfo> {
+    const subject = new Subject<UserInfo>(); //backend simülasyonu
+
+    this.httpClient
+      .get<UserInfo>("http://localhost:3000/userInfo" + '?id=' + selectedId)
+      .subscribe({
+
+        next: (response) => {
+
+          const customer: UserInfo = response;
+          subject.next(customer);
+          console.log(customer)
+        },
+        error: (err) => {
+          subject.error(err);
+        },
+        complete: () => {
+          subject.complete();
+        },
+      });
+    return subject.asObservable();
+  }
+
+
 
 }

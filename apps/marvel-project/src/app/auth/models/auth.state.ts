@@ -1,6 +1,8 @@
 import {Offer} from "../../pages/models/offer";
 import {ProdOfferChars} from "../../pages/models/prodOfferChars";
 import {OfferItem} from "../../pages/models/offerItem";
+import {User} from "./user";
+import {UserInfo} from "./userInfo";
 
 export interface AuthStateModel {
   token: string;
@@ -8,7 +10,7 @@ export interface AuthStateModel {
   name: string;
   userType: string;
   offerList:Offer[];
-
+  userInfo:UserInfo[]
   selectedOfferList:OfferItem[]
 }
 

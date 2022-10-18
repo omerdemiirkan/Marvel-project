@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Actions, Store } from '@ngxs/store';
@@ -9,6 +9,7 @@ import { User } from '../../models/user';
 import { switchMap } from 'rxjs';
 import { AuthState } from '../../storage/state';
 import { MessageService, PrimeNGConfig } from 'primeng/api';
+import {stringify} from "ts-jest";
 
 @Component({
   selector: 'omer-login',
@@ -20,6 +21,8 @@ export class LoginComponent implements OnInit {
   user!: UserInfo[];
   login!: User;
   loginForm!: FormGroup;
+  selectedCustomerId!: number;
+  customer!:UserInfo
 
   constructor(
     private router: Router,
@@ -28,14 +31,41 @@ export class LoginComponent implements OnInit {
     private store: Store,
     private actions: Actions,
     private messageService: MessageService,
-    private primengConfig: PrimeNGConfig
+    private primengConfig: PrimeNGConfig,
+    private activatedRoute: ActivatedRoute,
   ) {}
 
   ngOnInit(): void {
     this.primengConfig.ripple = true;
     this.createLoginForm();
+    this.getParams()
+
     this.getUserList();
   }
+  getParams() {
+    this.activatedRoute.params.subscribe((params) => {
+      if (params['id']) this.selectedCustomerId = params['id'];
+
+      this.getCustomerById();
+    });
+  }
+  getCustomerById() {
+    this.activatedRoute.params.subscribe((params) => {
+      if (params['id']) this.selectedCustomerId = params['id'];
+    });
+    if (this.selectedCustomerId == undefined) {
+      //toast
+    } else {
+      this.authService
+        .getCustomerById(this.selectedCustomerId)
+        .subscribe((data) => {
+          this.customer = data;
+          console.log(data ,"yeni dataaaa")
+          console.log(this.customer,"cutsotmwee")
+        });
+    }
+  }
+
   createLoginForm() {
     this.loginForm = this.formBuilder.group({
       username: ['', Validators.required],
@@ -52,6 +82,7 @@ export class LoginComponent implements OnInit {
   }
 
   signin() {
+
     this.store
       .dispatch(
         new Signin(
@@ -78,10 +109,12 @@ export class LoginComponent implements OnInit {
             )
             .pipe(switchMap(() => this.store.selectOnce(AuthState.userDetails)))
             .subscribe((data) => {
+
               this.type = data;
+
               console.log(data);
               console.log(this.type.userType);
-              console.log(data);
+
               if (data.userType == 'customer') {
                 this.messageService.add({
                   key: 'myKey1',
