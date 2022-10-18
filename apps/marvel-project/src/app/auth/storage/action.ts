@@ -1,5 +1,6 @@
 import {Offer} from "../../pages/models/offer";
 import {OfferStateModel} from "../models/auth.state";
+import {DeleteOffer} from "../../pages/models/removeOffer";
 
 
 export class Signin {
@@ -15,7 +16,7 @@ export class Auth {
 
 export class RemoveOffer {
   static readonly type = '[Offer] Remove Offer ';
-  constructor(public offer:Offer) {}
+  constructor(public offer:DeleteOffer) {}
 }
 
 export class SelectedOfferList {
@@ -35,7 +36,7 @@ export class addOfferToBasket {
 
 export class RemoveOfferBasket {
   static readonly type = '[Offer] Remove Offer Basket';
-  constructor(public offer:Offer) {}
+  constructor(public offer:DeleteOffer) {}
 }
 
 

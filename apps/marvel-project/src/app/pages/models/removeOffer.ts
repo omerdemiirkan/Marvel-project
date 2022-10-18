@@ -1,7 +1,6 @@
 import {ProdOfferChars} from "./prodOfferChars";
 
-
-export interface Offer{
+export interface DeleteOffer{
   id:number
   prodOfferId?: number
   name?: string
@@ -9,6 +8,6 @@ export interface Offer{
   status?: string
   prodOfferType?: string
   prodOfferChars?:ProdOfferChars[]
-    amount:number
+  amount?:number
 
 }

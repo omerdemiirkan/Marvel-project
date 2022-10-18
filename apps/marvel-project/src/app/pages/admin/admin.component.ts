@@ -37,9 +37,7 @@ export class AdminComponent implements OnInit {
       .pipe(switchMap(() => this.store.selectOnce(AuthState.getOfferList)))
       .subscribe((data)=>{
         this.offerList=data.offerList
-        data.offerList.filter(m=>{
-           m.status==this.status
-        })
+
         console.log(data,"state offerlist")
       })
 

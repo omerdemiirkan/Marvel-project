@@ -141,7 +141,7 @@ export class AuthState {
   RemoveOfferBasket({setState, getState, patchState }:StateContext<OfferStateModel>,{offer}:RemoveOfferBasket){
     let offers = getState().selectedOfferList;
     offers = offers.filter(o=>o?.id!=offer?.id);
-    console.log("new offers", offers);
+
     patchState({selectedOfferList:offers});
   }
 

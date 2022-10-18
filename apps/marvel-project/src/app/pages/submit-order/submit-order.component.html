@@ -1,52 +1,57 @@
-
-<div class="dashboard-background ">
-  <h1 style="color:#f58220" > SUBMİT ORDER  </h1>
+<div class="dashboard-background">
+  <h1 style="color: #f58220">SUBMİT ORDER</h1>
   <div class="row">
     <div class="col-8">
-
       <div class="accordion-body">
         <div class="row">
           <div class="col-12">
             <table class="table e-accordion-table mt-4">
               <thead>
-              <tr class="e-accordion-table-title">
-                <th scope="col">Offer ID</th>
-                <th scope="col">Offer Name</th>
-                <th scope="col">Offer Description Name</th>
-                <th scope="col">Offer Type</th>
-                <th scope="col">Offer Status </th>
-
-              </tr>
+                <tr class="e-accordion-table-title">
+                  <th scope="col">Offer ID</th>
+                  <th scope="col">Offer Name</th>
+                  <th scope="col">Offer Description Name</th>
+                  <th scope="col">Offer Type</th>
+                  <th scope="col">Offer Status</th>
+                  <th scope="col">Offer Amount</th>
+                </tr>
               </thead>
               <tbody class="e-accordion-table-body">
-
-
-                  <tr  *ngFor="let offer of selectedOffers">
-                    <td>{{ offer.id }}</td>
-                    <td>{{ offer.offer.name }}</td>
-                    <td>{{ offer.offer.description }}</td>
-                    <td>{{ offer.offer.prodOfferType }}</td>
-                    <td>{{ offer.offer.status}}</td>
-                  </tr>
-
-
+                <tr *ngFor="let offer of selectedOffers">
+                  <td>{{ offer.id }}</td>
+                  <td>{{ offer.offer.name }}</td>
+                  <td>{{ offer.offer.description }}</td>
+                  <td>{{ offer.offer.prodOfferType }}</td>
+                  <td>{{ offer.offer.status }}</td>
+                  <td>{{ offer.offer.amount }}</td>
+                </tr>
+                <tr>
+                  <th>TOTAL</th>
+                  <td style="border: none"></td>
+                  <td style="border: none"></td>
+                  <td style="border: none"></td>
+                  <td style="border: none"></td>
+                  <td>{{ amount }}</td>
+                </tr>
               </tbody>
             </table>
             <div class="d-flex">
-              <button  routerLink="/dashboard"  class="col-3 m-lg-auto  w-25  btn btn-outline-warning " >
+              <button
+                routerLink="/dashboard"
+                class="col-3 m-lg-auto w-25 btn btn-outline-warning"
+              >
                 Cancel
               </button>
-              <button (click)="submitOrder()"   class="col-3 w-25 m-lg-auto btn btn-outline-warning " >
+              <button
+                (click)="submitOrder()"
+                class="col-3 w-25 m-lg-auto btn btn-outline-warning"
+              >
                 Submit
               </button>
             </div>
-
           </div>
-
         </div>
       </div>
-
     </div>
-
   </div>
 </div>
