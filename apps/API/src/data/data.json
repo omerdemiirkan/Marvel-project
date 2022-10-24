@@ -1,38 +1,6 @@
 {
   "userInfo": [
     {
-      "id": 1,
-      "userType": "admin",
-      "uname": "Beyza",
-      "isActive": true,
-      "username": "beyza06",
-      "password": "1234"
-    },
-    {
-      "id": 2,
-      "userType": "admin",
-      "uname": "Duygu",
-      "isActive": true,
-      "username": "duygu01",
-      "password": "duygu123"
-    },
-    {
-      "id": 3,
-      "userType": "customer",
-      "uname": "Mirza",
-      "isActive": true,
-      "username": "mirza36",
-      "password": "mirza123"
-    },
-    {
-      "id": 4,
-      "userType": "customer",
-      "uname": "Mehmet",
-      "isActive": true,
-      "username": "mehmet12",
-      "password": "mehmet123"
-    },
-    {
       "id": 593,
       "uname": "ömer",
       "userName": "omer@gmail.com",
@@ -51,43 +19,7 @@
       "repassword": "12"
     },
     {
-      "id": 482,
-      "uname": "omer@gmail.com",
-      "username": "omer@gmail.com",
-      "userType": "admin",
-      "isActive": true,
-      "password": "12",
-      "repassword": "12"
-    },
-    {
-      "id": 520,
-      "uname": "asda",
-      "username": "omer@gmail.com",
-      "userType": "admin",
-      "isActive": true,
-      "password": "12",
-      "repassword": "12"
-    },
-    {
-      "id": 450,
-      "uname": "t44w35",
-      "username": "omer@gmail.com",
-      "userType": "customer",
-      "isActive": true,
-      "password": "1234",
-      "repassword": "1234"
-    },
-    {
-      "id": 945,
-      "uname": "ömer",
-      "username": "ömer12",
-      "userType": "customer",
-      "isActive": true,
-      "password": "ömer",
-      "repassword": "ömer"
-    },
-    {
-      "id": 139,
+      "id": 697,
       "uname": "ömer",
       "username": "ömer",
       "userType": "admin",
@@ -96,10 +28,19 @@
       "repassword": "1"
     },
     {
-      "id": 428,
+      "id": 728,
       "uname": "ömer",
-      "username": "ömer12",
+      "username": "ömer1",
       "userType": "customer",
+      "isActive": true,
+      "password": "1",
+      "repassword": "1"
+    },
+    {
+      "id": 414,
+      "uname": "ahmet",
+      "username": "ahmet",
+      "userType": "admin",
       "isActive": true,
       "password": "1",
       "repassword": "1"
@@ -177,6 +118,64 @@
           ]
         }
       ]
+    },
+    {
+      "id": 145,
+      "prodOfferId": "",
+      "name": "",
+      "status": "",
+      "description": "",
+      "prodOfferType": "",
+      "amount": ""
+    },
+    {
+      "id": 293,
+      "prodOfferId": 1,
+      "name": "32 Mbps ADSL Internet For New Customers",
+      "status": "Active",
+      "description": "32 Mbps ADSL Internetttttttttttttttttttttttttttt",
+      "prodOfferType": "New Customers Offers",
+      "amount": 125,
+      "prodOfferChars": [
+        {
+          "charId": 1,
+          "name": "Türk Telekom Modem",
+          "shortCode": "TT",
+          "isActive": true,
+          "selectedCharValue": {
+            "charValId": 1,
+            "name": "Türk Telekom Modem",
+            "shortCode": "TTM",
+            "value": "Türk Telekom Modem",
+            "isSelected": true
+          },
+          "charValueList": [
+            {
+              "charValId": 1,
+              "name": "Türk Telekom Modem",
+              "shortCode": "TTM",
+              "value": "Türk Telekom Modem",
+              "isSelected": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 716,
+      "name": "sdf",
+      "status": "Active",
+      "description": "sfsf",
+      "prodOfferType": "fsf",
+      "amount": "sfs"
+    },
+    {
+      "id": 479,
+      "name": "werw",
+      "status": "rwerwrw",
+      "description": "rwr",
+      "prodOfferType": "erw",
+      "amount": "wrwrw"
     }
   ],
   "custOrder": [
@@ -328,6 +327,325 @@
       "orderCharList": {
         "charId": 540,
         "charValId": 904,
+        "name": "",
+        "shortCode": "",
+        "value": ""
+      },
+      "orderType": "order 2",
+      "returnCode": "200",
+      "returnMessage": "get list success"
+    },
+    {
+      "id": 17420879,
+      "userInfo": [
+        {
+          "id": 428,
+          "uname": "ömer",
+          "username": "ömer12",
+          "userType": "customer",
+          "isActive": true,
+          "password": "1",
+          "repassword": "1"
+        }
+      ],
+      "prodOfferLists": [
+        {
+          "offer": {
+            "id": 1,
+            "prodOfferId": 1,
+            "name": "32 Mbps ADSL Internet For New Customers",
+            "description": "32 Mbps ADSL Internet",
+            "status": "Active",
+            "amount": 125,
+            "prodOfferType": "New Customers Offers",
+            "prodOfferChars": [
+              {
+                "charId": 1,
+                "name": "Türk Telekom Modem",
+                "shortCode": "TT",
+                "isActive": true,
+                "selectedCharValue": {
+                  "charValId": 1,
+                  "name": "Türk Telekom Modem",
+                  "shortCode": "TTM",
+                  "value": "Türk Telekom Modem",
+                  "isSelected": true
+                },
+                "charValueList": [
+                  {
+                    "charValId": 1,
+                    "name": "Türk Telekom Modem",
+                    "shortCode": "TTM",
+                    "value": "Türk Telekom Modem",
+                    "isSelected": true
+                  }
+                ]
+              }
+            ]
+          },
+          "id": 103
+        },
+        {
+          "offer": {
+            "id": 2,
+            "prodOfferId": 2,
+            "name": "70 Mbps VDSL for new Customer with friend invention",
+            "description": "70 Mbps VDSL",
+            "status": "Passive",
+            "amount": 215,
+            "prodOfferType": "New Customers Offers",
+            "prodOfferChars": [
+              {
+                "charId": 1,
+                "name": "Superonline Telekom Modem",
+                "shortCode": "SO",
+                "isActive": true,
+                "selectedCharValue": {
+                  "charValId": 1,
+                  "name": "Superonline Modem",
+                  "shortCode": "SOM",
+                  "value": "Superonline Modem",
+                  "isSelected": true
+                },
+                "charValueList": [
+                  {
+                    "charValId": 1,
+                    "name": "Superonline Modem",
+                    "shortCode": "SOM",
+                    "value": "Superonline Modem",
+                    "isSelected": true
+                  }
+                ]
+              }
+            ]
+          },
+          "id": 0
+        }
+      ],
+      "orderCharList": {
+        "charId": 411,
+        "charValId": 693,
+        "name": "",
+        "shortCode": "",
+        "value": ""
+      },
+      "orderType": "order 2",
+      "returnCode": "200",
+      "returnMessage": "get list success"
+    },
+    {
+      "id": 49094014,
+      "prodOfferLists": [
+        {
+          "offer": {
+            "id": 2,
+            "prodOfferId": 2,
+            "name": "70 Mbps VDSL for new Customer with friend invention",
+            "description": "70 Mbps VDSL",
+            "status": "Passive",
+            "amount": 215,
+            "prodOfferType": "New Customers Offers",
+            "prodOfferChars": [
+              {
+                "charId": 1,
+                "name": "Superonline Telekom Modem",
+                "shortCode": "SO",
+                "isActive": true,
+                "selectedCharValue": {
+                  "charValId": 1,
+                  "name": "Superonline Modem",
+                  "shortCode": "SOM",
+                  "value": "Superonline Modem",
+                  "isSelected": true
+                },
+                "charValueList": [
+                  {
+                    "charValId": 1,
+                    "name": "Superonline Modem",
+                    "shortCode": "SOM",
+                    "value": "Superonline Modem",
+                    "isSelected": true
+                  }
+                ]
+              }
+            ]
+          },
+          "id": 643
+        },
+        {
+          "offer": {
+            "id": 293,
+            "prodOfferId": 1,
+            "name": "32 Mbps ADSL Internet For New Customers",
+            "status": "Active",
+            "description": "32 Mbps ADSL Internetttttttttttttttttttttttttttt",
+            "prodOfferType": "New Customers Offers",
+            "amount": 125,
+            "prodOfferChars": [
+              {
+                "charId": 1,
+                "name": "Türk Telekom Modem",
+                "shortCode": "TT",
+                "isActive": true,
+                "selectedCharValue": {
+                  "charValId": 1,
+                  "name": "Türk Telekom Modem",
+                  "shortCode": "TTM",
+                  "value": "Türk Telekom Modem",
+                  "isSelected": true
+                },
+                "charValueList": [
+                  {
+                    "charValId": 1,
+                    "name": "Türk Telekom Modem",
+                    "shortCode": "TTM",
+                    "value": "Türk Telekom Modem",
+                    "isSelected": true
+                  }
+                ]
+              }
+            ]
+          },
+          "id": 540
+        }
+      ],
+      "orderCharList": {
+        "charId": 282,
+        "charValId": 669,
+        "name": "",
+        "shortCode": "",
+        "value": ""
+      },
+      "orderType": "order 2",
+      "returnCode": "200",
+      "returnMessage": "get list success"
+    },
+    {
+      "id": 41461516,
+      "userInfo": [
+        {
+          "id": 728,
+          "uname": "ömer",
+          "username": "ömer1",
+          "userType": "customer",
+          "isActive": true,
+          "password": "1",
+          "repassword": "1"
+        }
+      ],
+      "prodOfferLists": [
+        {
+          "offer": {
+            "id": 2,
+            "prodOfferId": 2,
+            "name": "70 Mbps VDSL for new Customer with friend invention",
+            "description": "70 Mbps VDSL",
+            "status": "Passive",
+            "amount": 215,
+            "prodOfferType": "New Customers Offers",
+            "prodOfferChars": [
+              {
+                "charId": 1,
+                "name": "Superonline Telekom Modem",
+                "shortCode": "SO",
+                "isActive": true,
+                "selectedCharValue": {
+                  "charValId": 1,
+                  "name": "Superonline Modem",
+                  "shortCode": "SOM",
+                  "value": "Superonline Modem",
+                  "isSelected": true
+                },
+                "charValueList": [
+                  {
+                    "charValId": 1,
+                    "name": "Superonline Modem",
+                    "shortCode": "SOM",
+                    "value": "Superonline Modem",
+                    "isSelected": true
+                  }
+                ]
+              }
+            ]
+          },
+          "id": 531
+        },
+        {
+          "offer": {
+            "id": 2,
+            "prodOfferId": 2,
+            "name": "70 Mbps VDSL for new Customer with friend invention",
+            "description": "70 Mbps VDSL",
+            "status": "Passive",
+            "amount": 215,
+            "prodOfferType": "New Customers Offers",
+            "prodOfferChars": [
+              {
+                "charId": 1,
+                "name": "Superonline Telekom Modem",
+                "shortCode": "SO",
+                "isActive": true,
+                "selectedCharValue": {
+                  "charValId": 1,
+                  "name": "Superonline Modem",
+                  "shortCode": "SOM",
+                  "value": "Superonline Modem",
+                  "isSelected": true
+                },
+                "charValueList": [
+                  {
+                    "charValId": 1,
+                    "name": "Superonline Modem",
+                    "shortCode": "SOM",
+                    "value": "Superonline Modem",
+                    "isSelected": true
+                  }
+                ]
+              }
+            ]
+          },
+          "id": 38
+        },
+        {
+          "offer": {
+            "id": 1,
+            "prodOfferId": 1,
+            "name": "32 Mbps ADSL Internet For New Customers",
+            "description": "32 Mbps ADSL Internet",
+            "status": "Active",
+            "amount": 125,
+            "prodOfferType": "New Customers Offers",
+            "prodOfferChars": [
+              {
+                "charId": 1,
+                "name": "Türk Telekom Modem",
+                "shortCode": "TT",
+                "isActive": true,
+                "selectedCharValue": {
+                  "charValId": 1,
+                  "name": "Türk Telekom Modem",
+                  "shortCode": "TTM",
+                  "value": "Türk Telekom Modem",
+                  "isSelected": true
+                },
+                "charValueList": [
+                  {
+                    "charValId": 1,
+                    "name": "Türk Telekom Modem",
+                    "shortCode": "TTM",
+                    "value": "Türk Telekom Modem",
+                    "isSelected": true
+                  }
+                ]
+              }
+            ]
+          },
+          "id": 690
+        }
+      ],
+      "orderCharList": {
+        "charId": 122,
+        "charValId": 769,
         "name": "",
         "shortCode": "",
         "value": ""

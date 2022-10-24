@@ -10,6 +10,7 @@ import { CustOrder } from '../models/custOrder';
 import { AuthService } from '../../auth/services/auth.service';
 import { UserInfo } from '../../auth/models/userInfo';
 import { MessageService } from 'primeng/api';
+import {SelectedUpdateOfferList} from "../../auth/storage/action";
 
 @Component({
   selector: 'omer-submit-order',
@@ -96,5 +97,16 @@ export class SubmitOrderComponent implements OnInit {
       sumAmount += offer.offer.amount;
     });
     return sumAmount;
+  }
+
+  update(id:number){
+
+
+      localStorage.setItem("offerId",String(id))
+
+      this.router.navigateByUrl('/update-Offer');
+
+
+
   }
 }

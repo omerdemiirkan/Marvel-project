@@ -1,78 +1,72 @@
-
-
+.dashboard-background {
+}
 
 /*-----Background-----*/
 
-body{
-  background-image:url("../../../../assets/img/etiyakafa.jpg");
-  background-repeat:no-repeat;
-  background-size:cover;
-  width:100%;
-  height:100vh;
-  overflow:auto;
+body {
+  background-image: url('../../../assets/img/etiyakafa.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 100vh;
+  overflow: auto;
 
-}
-.col-xs-4{
-  text-align: end;
+  opacity: 1;
 }
 
 /*-----for border----*/
-.container{
-  font-family:Roboto,sans-serif;
-  background-image:url("../../../../assets/img/etiyaAnlasma.jpg") ;
+.container {
+  font-family: Roboto, sans-serif;
 
-  margin: 0 auto;
   text-align: center;
   opacity: 0.8;
-  margin-top: 67px;
   box-shadow: 2px 5px 5px 0px #f78200;
   max-width: 500px;
   padding-top: 10px;
-  height: 363px;
+  height: 400px;
   margin-top: 166px;
 }
 /*--- for label of first and last name---*/
-.lastname{
+.lastname {
   margin-left: 1px;
   font-family: sans-serif;
   font-size: 14px;
   color: white;
   margin-top: 10px;
 }
-.firstname{
+.firstname {
   margin-left: 1px;
   font-family: sans-serif;
   font-size: 14px;
   color: white;
   margin-top: 5px;
 }
-#lname{
-  margin-top:5px;
+#lname {
+  margin-top: 5px;
 }
 
-
 /*---for heading-----*/
-.heading{
-  text-align : center;
-  font-size:30px;
-  color:#f78200;
-  padding-top:10px;
+.heading {
+  text-align: center;
+  font-size: 30px;
+  color: #f78200;
+  padding-top: 10px;
 }
 /*-------for email----------*/
 /*------label----*/
-#email{
+#email {
   margin-top: 5px;
 }
 /*-----------for Password--------*/
 /*-------label-----*/
-.mail{
+.mail {
   margin-left: 44px;
   font-family: sans-serif;
   color: white;
   font-size: 14px;
   margin-top: 13px;
 }
-.pass{
+.pass {
   color: white;
   margin-top: 9px;
   font-size: 14px;
@@ -80,17 +74,16 @@ body{
   margin-left: 6px;
   margin-top: 9px;
 }
-#password{
+#password {
   margin-top: 6px;
 }
 /*------------for phone Number--------*/
 /*----------label--------*/
-.pno{
+.pno {
   font-size: 18px;
   margin-left: -13px;
   margin-top: 10px;
   color: #ff9;
-
 }
 
 /*--------------for Gender---------------*/
@@ -104,7 +97,7 @@ body{
 }
 
 /*---------- for Input type--------*/
-.col-xs-4.male{
+.col-xs-4.male {
   color: white;
   font-size: 13px;
   margin-top: 9px;
@@ -118,7 +111,7 @@ body{
   padding-right: 95px;
 }
 /*------------For submit button---------*/
-.sbutton{
+.sbutton {
   color: white;
   font-size: 20px;
   border: 1px solid white;
@@ -127,29 +120,54 @@ body{
   margin-left: 41%;
   margin-top: 16px;
   box-shadow: 0px 2px 2px 0px white;
-
 }
 .btn.btn-warning:hover {
   box-shadow: 1px 1px 1px 1px #99ccff;
-  background:#5900a6;
-  color:#fff;
-  transition: background-color 1.15s ease-in-out,border-color 1.15s ease-in-out,box-shadow 1.15s ease-in-out;
-
+  background: #5900a6;
+  color: #fff;
+  transition: background-color 1.15s ease-in-out, border-color 1.15s ease-in-out,
+    box-shadow 1.15s ease-in-out;
 }
 
-input ,select{
+input,
+select {
   background: #f78200;
   color: white;
 }
-input::placeholder ,select::placeholder, option::placeholder  { /* Chrome, Firefox, Opera, Safari 10.1+ */
+input::placeholder,
+select::placeholder,
+option::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
   color: white;
-
 }
-input:focus ,select:focus {
+input:focus,
+select:focus {
   background: #f78200;
   color: white;
 }
 
-.btn-warning{
+.btn-warning {
   background: #f78200;
+}
+
+input[type='date'] {
+  position: relative;
+  overflow: visible;
+}
+input::placeholder {
+  color: #fff;
+}
+
+.invalid-input {
+  border-color: red !important;
+  color: red !important;
+}
+
+small {
+  font-weight: 700 !important;
+  font-size: 15px !important;
+}
+
+.col-xs-4{
+  text-align: end;
 }

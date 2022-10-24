@@ -21,10 +21,12 @@ import {MessageService} from "primeng/api";
 import {BasketComponent} from "./pages/basket/basket.component";
 import { AdminComponent } from './pages/admin/admin.component';
 import { SubmitOrderComponent } from './pages/submit-order/submit-order.component';
+import { AddProdOfferComponent } from './pages/add-prod-offer/add-prod-offer.component';
+import { UpdateProdOfferComponent } from './pages/update-prod-offer/update-prod-offer.component';
 
 
 @NgModule({
-  declarations: [AppComponent, CustomerComponent, BasketComponent, AdminComponent, SubmitOrderComponent],
+  declarations: [AppComponent, CustomerComponent, BasketComponent, AdminComponent, SubmitOrderComponent, AddProdOfferComponent, UpdateProdOfferComponent, ],
   imports: [
     BrowserModule,
     AuthModule,

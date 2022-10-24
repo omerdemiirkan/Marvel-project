@@ -1,16 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import { Offer } from '../models/offer';
-import { DashboardService } from '../services/dashboard/dashboard.service';
-import {
-  addOfferToBasket,
-  OfferList,
-  RemoveBasket,
-  RemoveOfferBasket,
-} from '../../auth/storage/action';
-import { switchMap, tap } from 'rxjs';
-import { AuthState } from '../../auth/storage/state';
-import { Store } from '@ngxs/store';
-import { OfferItem } from '../models/offerItem';
+import {Component, OnInit} from '@angular/core';
+import {DashboardService} from '../services/dashboard/dashboard.service';
+import {RemoveOfferBasket,} from '../../auth/storage/action';
+import {tap} from 'rxjs';
+import {AuthState} from '../../auth/storage/state';
+import {Store} from '@ngxs/store';
+import {OfferItem} from '../models/offerItem';
 
 @Component({
   selector: 'omer-basket',
@@ -54,19 +48,5 @@ export class BasketComponent implements OnInit {
     );
   }
 
-  // removeBasket(){
-  //   this.store.dispatch(new RemoveBasket())
-  // }
-  //
-  // get amount(): number {
-  //   let sumAmount!:number;
-  //   if (this.selectedOffers === undefined) return sumAmount;
-  //   this.selectedOffers.forEach((offer) => {
-  //  offer.offer.id
-  //   });
-  //   console.log(sumAmount)
-  //
-  //
-  //   return sumAmount;
-  // }
+
 }

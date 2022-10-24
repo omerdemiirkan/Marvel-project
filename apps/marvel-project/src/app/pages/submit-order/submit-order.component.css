@@ -179,4 +179,18 @@ h1{
   color: #f58220;
 
 }
+.delete {
+  color: #f58220;
+
+
+  margin-left: 10px;
+  cursor:pointer;
+}
+.pencil{
+  cursor:pointer;
+}
+.delete:hover ,.pencil:hover{
+  background-color: #f58220;
+}
+
 

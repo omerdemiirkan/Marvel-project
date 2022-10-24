@@ -1,59 +1,71 @@
 import { Component, OnInit } from '@angular/core';
-import {Offer} from "../models/offer";
-import {DashboardService} from "../services/dashboard/dashboard.service";
-import {Select, Store} from "@ngxs/store";
-import {Observable, switchMap, tap} from "rxjs";
-import {AuthState} from "../../auth/storage/state";
-import {OfferList, RemoveOffer, RemoveOfferBasket, Signin} from "../../auth/storage/action";
-import {OfferItem} from "../models/offerItem";
+import { Offer } from '../models/offer';
+import { DashboardService } from '../services/dashboard/dashboard.service';
+import { Store } from '@ngxs/store';
+import { switchMap, tap } from 'rxjs';
+import { AuthState } from '../../auth/storage/state';
+import {
+  OfferList,
+  RemoveOfferBasket,
+  RemoveOfferList,
+} from '../../auth/storage/action';
+import { Router } from '@angular/router';
+import { OfferItem } from '../models/offerItem';
 
 @Component({
   selector: 'omer-admin',
   templateUrl: './admin.component.html',
-  styleUrls: ['./admin.component.css']
+  styleUrls: ['./admin.component.css'],
 })
 export class AdminComponent implements OnInit {
+  offerList!: Offer[];
 
-
-  offerList!:Offer[]
-
-  status!:Offer
+  status!: Offer;
+  selectedOffers!: OfferItem[];
 
   selectedCustomerId!: number;
 
-  constructor(private dashboardService:DashboardService,private store: Store) {
-
-
-  }
+  constructor(
+    private dashboardService: DashboardService,
+    private store: Store,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
-    this.getOfferList()
+    this.getOfferList();
+    this.getSelectedOfferList();
   }
 
-  getOfferList(){
-
+  getOfferList() {
     this.store
-      .dispatch(new OfferList() )
+      .dispatch(new OfferList())
       .pipe(switchMap(() => this.store.selectOnce(AuthState.getOfferList)))
-      .subscribe((data)=>{
-        this.offerList=data.offerList
-
-        console.log(data,"state offerlist")
-      })
+      .subscribe((data) => {
+        console.log(data.offerList, 'state offerlist');
+        this.offerList = data.offerList;
+        console.log(this.offerList,"valla geliyor hepsi")
+      });
 
   }
+  getSelectedOfferList() {
+    this.store.select(AuthState.getSelectedOfferList).subscribe((data) => {
+      console.log(data);
+      if (data.selectedOfferList) {
+        this.selectedOffers = data.selectedOfferList;
+      }
+    });
+  }
 
-  // delete(id:number){
-  // this.dashboardService.delete(id).subscribe(()=>{
-  //   alert("silindi")
-  // })
-  //
-  // }
+  update(id: number) {
+    localStorage.setItem('id', String(id));
 
-  remove(offer:Offer){
-    this.store.dispatch(new RemoveOffer(offer)).pipe(tap(m=>{
-      console.log(m,"mmmm")
+    this.router.navigateByUrl('/update-Offer');
+  }
 
-    }))
+  remove(offer: Offer) {
+    console.log(offer);
+    this.store.dispatch(new RemoveOfferList(offer)
+    );
+
   }
 }

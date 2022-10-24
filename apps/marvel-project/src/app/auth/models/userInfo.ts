@@ -9,4 +9,4 @@ export interface UserInfo{
 	password?: string;
 
 
-  }
+}

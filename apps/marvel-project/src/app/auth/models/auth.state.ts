@@ -18,6 +18,7 @@ export interface OfferStateModel {
 
   offerList:Offer[];
   selectedOfferList:OfferItem[]
+  selectedUpdateOfferList:OfferItem
 }
 
 export interface DeleteStateModel {

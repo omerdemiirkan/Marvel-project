@@ -12,26 +12,27 @@
                   <th scope="col">Offer Name</th>
                   <th scope="col">Offer Description Name</th>
                   <th scope="col">Offer Type</th>
-                  <th scope="col">Offer Status</th>
                   <th scope="col">Offer Amount</th>
+                  <th scope="col">Action</th>
                 </tr>
               </thead>
               <tbody class="e-accordion-table-body">
                 <tr *ngFor="let offer of selectedOffers">
-                  <td>{{ offer.id }}</td>
+                  <td>{{ offer.offer.id }}</td>
                   <td>{{ offer.offer.name }}</td>
                   <td>{{ offer.offer.description }}</td>
                   <td>{{ offer.offer.prodOfferType }}</td>
-                  <td>{{ offer.offer.status }}</td>
+
                   <td>{{ offer.offer.amount }}</td>
+                  <td><img  (click)="update(offer.id)"  class="pencil" src="../../../assets/img/pencil_accordion.png"></td>
                 </tr>
                 <tr>
                   <th>TOTAL</th>
                   <td style="border: none"></td>
                   <td style="border: none"></td>
                   <td style="border: none"></td>
-                  <td style="border: none"></td>
                   <td>{{ amount }}</td>
+
                 </tr>
               </tbody>
             </table>

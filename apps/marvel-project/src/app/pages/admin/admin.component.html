@@ -1,7 +1,7 @@
 
 <div class="dashboard-background  ">
   <h1 class="mt-4" style="color:#f58220" >ADMİN </h1>
-  <button class="mb-4 btn btn-outline-warning">
+  <button routerLink="/add-Offer" class="mb-4 btn btn-outline-warning">
     <img  style="width: 35px;height: 35px; background-color: #f58220" src="../../../assets/img/add_new.png" > ADD NEW OFFER
   </button>
   <div class="row">
@@ -23,7 +23,7 @@
               </thead>
               <tbody class="e-accordion-table-body">
               <ng-template ngFor let-offer [ngForOf]="offerList">
-                <ng-template *ngIf="offer.status==='Active'" ngFor let-prodOfferChar [ngForOf]="offer. prodOfferChars">
+                <ng-template *ngIf="offer.status==='Active'" ngFor let-prodOfferChar [ngForOf]="offer.prodOfferChars">
                   <tr  *ngFor="let selectedChar of prodOfferChar.charValueList">
                     <td>{{ offer.prodOfferId }}</td>
                     <td>{{ offer.name }}</td>
@@ -33,11 +33,9 @@
                     <td>
                       <div class="d-flex">
 
-                        <img class="pencil" src="../../../assets/img/pencil_accordion.png" >
+                        <img (click)="update(offer.id)"  class="pencil" src="../../../assets/img/pencil_accordion.png" >
 
-                          <img (click)="remove(offer)"  class="delete" src="../../../assets/img/delete_accordion.png" >
-
-  <button routerLink="/dashboard">geri</button>
+                          <img  (click)="remove(offer)"  class="delete" src="../../../assets/img/delete_accordion.png" >
 
                       </div>
                     </td>
